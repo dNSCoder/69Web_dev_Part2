@@ -10,3 +10,11 @@ venv/
 ./__pycache__/
 ./media
 ./db.sqlite3
+__pycache__/
+*.pyc
+./*.pyc
+./static/dist/
+static/dist/
+**/static/dist/
+__pycache__/
+*.pyc
