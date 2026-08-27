@@ -1,0 +1,12 @@
+#----postgresql
+pgdata/
+
+#--- Docker
+docker-compose.yaml
+
+#---django
+.venv/
+venv/
+./__pycache__/
+./media
+./db.sqlite3
