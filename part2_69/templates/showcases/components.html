@@ -108,8 +108,53 @@
                             <div class="bg-yellow-400 rounded text-white text-sm py-1.5 px-3">A</div>
                         </div>
                     </div>
+                    <div class="w-60">
+                        <p class="my-4 text-xs text-gray-800"> items-start justify-end</p>
+                        <div class="flex items-start justify-end gap-2 bg-gray-100 p-2 h-30">
+                            <div class="bg-yellow-400 rounded text-white text-sm py-1.5 px-3">A</div>
+                        </div>
+                    </div>
                 </div>
-                
+                <div class="flex space-x-4">
+                    <div class="w-60">
+                        <p class="my-4 text-xs text-gray-800"> items-center justify-center</p>
+                        <div class="flex items-center justify-center gap-2 bg-gray-100 p-2 h-30">
+                            <div class="bg-yellow-400 rounded text-white text-sm py-1.5 px-3">A</div>
+                        </div>
+                    </div>
+                    <div class="w-60">
+                        <p class="my-4 text-xs text-gray-800"> items-center justify-start</p>
+                        <div class="flex items-center justify-start gap-2 bg-gray-100 p-2 h-30">
+                            <div class="bg-yellow-400 rounded text-white text-sm py-1.5 px-3">A</div>
+                        </div>
+                    </div>
+                    <div class="w-60">
+                        <p class="my-4 text-xs text-gray-800"> items-center justify-end</p>
+                        <div class="flex items-center justify-end gap-2 bg-gray-100 p-2 h-30">
+                            <div class="bg-yellow-400 rounded text-white text-sm py-1.5 px-3">A</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <div class="w-60">
+                        <p class="my-4 text-xs text-gray-800"> items-end justify-center</p>
+                        <div class="flex items-end justify-center gap-2 bg-gray-100 p-2 h-30">
+                            <div class="bg-yellow-400 rounded text-white text-sm py-1.5 px-3">A</div>
+                        </div>
+                    </div>
+                    <div class="w-60">
+                        <p class="my-4 text-xs text-gray-800"> items-end justify-start</p>
+                        <div class="flex items-end justify-start gap-2 bg-gray-100 p-2 h-30">
+                            <div class="bg-yellow-400 rounded text-white text-sm py-1.5 px-3">A</div>
+                        </div>
+                    </div>
+                    <div class="w-60">
+                        <p class="my-4 text-xs text-gray-800"> items-end justify-end</p>
+                        <div class="flex items-end justify-end gap-2 bg-gray-100 p-2 h-30">
+                            <div class="bg-yellow-400 rounded text-white text-sm py-1.5 px-3">A</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -117,10 +162,61 @@
     <!-- padding -->
     <section class="space-y-4">
         <h2 class="text-2xl font-semibold">Padding</h2>
-        <p class="text-gray-500 text-sm">ระยะห่างจากขอบ "เข้าไปด้านในกล่อง"</p>
+        <p class="text-gray-500 text-sm">ระยะห่างจากขอบ "เข้าไปด้านในกล่อง" ใน tailwind ใช้ p (bootstrap ใช้เหมือนกัน) ถ้าไม่ระบุ x/y คือทุกด้าน</p>
         <div class="bg-white rounded-lg shadow p-5 space-y-3">
+            <div class="text-center">
+                <div class="bg-blue-100 border-2 border-dashed border-blue-500 inline-block">
+                    no-border
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="bg-blue-100 border-2 border-dashed border-blue-500 inline-block">
+                    <div class="bg-blue-600 text-white text-md p-1">p-1</div>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">0.25 rem</p>
+            </div>
+            <div class="text-center">
+                <div class="bg-blue-100 border-2 border-dashed border-blue-500 inline-block">
+                    <div class="bg-blue-600 text-white text-md p-2">p-2</div>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">0.5 rem</p>
+            </div>
+            <div class="text-center">
+                <div class="bg-blue-100 border-2 border-dashed border-blue-500 inline-block">
+                    <div class="bg-blue-600 text-white text-md p-4">p-4</div>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">1 rem</p>
+            </div>
+            
+        </div>
+        <p class="text-gray-500 text-sm">ระยะห่างจากขอบกำหนดแกนได้ว่าจะให้ห่างจากขอบในแกนไหน โดยใช้ x หรือ y</p>
+        <div class="bg-white rounded-lg shadow p-5 space-y-3">
+            <div class="flex-col text-center">
+                <div class="text-center my-2">
+                    <div class="bg-violet-100 border-2 border-dashed border-violet-500 inline-block">
+                        <div class="bg-violet-600 text-white text-md py-4 px-8">py-4 px-8</div>
+                    </div>
+                </div>
+                <div class="text-center mt-2">
+                    <div class="bg-violet-100 border-2 border-dashed border-violet-500 inline-block">
+                        <div class="bg-violet-600 text-white text-md py-4 px-16">py-4 px-16</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
+    <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">Margin</h2>
+        <p class="text-gray-500 text-sm">margin ระยะห่างจากขอบกับด้านนอก ดันกล่องข้าง ๆ ออกไป</p>
+        <div class="bg-white rounded-lg shadow p-5 space-y-3">
+            <p class="text-sm text-gray-600 mb-2">เทียบกันระหว่าง m-1 m-4 m-8</p>
+            <div class="bg-gray-100">
+                <div class="bg-green-600 text-white text-xs p-2 mb-1">mb-1</div>
+                <div class="bg-green-600 text-white text-xs p-2 mb-4">mb-4</div>
+                <div class="bg-green-600 text-white text-xs p-2 mb-8">mb-8</div>
+                <div class="bg-green-600 text-white text-xs p-2 mb-16">mb-16</div>
+                <div class="bg-green-600 text-white text-xs p-2 ">ไม่ถีบล่าง</div>
+            </div>
+        </div>
 </div>
 {% endblock %}

@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-5">
-        <div class="card">
+<div class="flex justify-center">
+    <div class="w-full max-w-sm">
+        <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-8">
             <div class="card-body">
-                <h1 class="h4 my-3">เข้าสู่ระบบ</h1>
+                <h1 class="text-xl font-semibold mb-4">เข้าสู่ระบบ</h1>
 
                 <form method="post">
                     {% csrf_token %}
                     <div class="mb-3">
-                        <label class="form-label">Username</label>
-                        <input type="text" name="username" class="form-control">
+                        <label class="block font-medium mb-1">Username</label>
+                        <input type="text" name="username" class="border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 px-3 py-1">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control">
+                        <label class="block font-medium mb-1">Password</label>
+                        <input type="password" name="password" class="border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 px-3 py-1">
                     </div>
                     <button class="btn-sudlhor" type="submit"> เข้าสู่ระบบ </button>
                 </form>

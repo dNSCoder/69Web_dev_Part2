@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="space-y-12 py-6">
+    <div class="border-b border-gray-200">
+        <h1 class="text-2xl font-bold">AlpineJS vs VanillaJS</h1>
+        <p class="text-gray-600 text-sm">เปรียบเทียบโค้ด alpine กับ vanilla โดยฝั่งซ้ายเป็น vanilla และ ขวาเป็น alpine</p>
+    </div>
+
+    <section>
+        <h2 class="text-xl font-semibold mb-2">1.Variable Management</h2>
+        <p class="text-xs text-gray-500">counter +- ค่าตัวแปร ด้วยปุ่ม</p>
+        <div class="grid grid-cols-2 gap-6">
+            <div class="bg-white mt-4 rounded-lg px-5 py-3">
+                <h3 class="text-lg font-semibold">VanillaJS</h3>
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="text-xl font-mono" id="v1_counter" >0</div>
+                    <div class="space-x-2">
+                        <button id="v1_dec" class="px-3 py-1 bg-red-600 text-white rounded-lg">-</button>
+                        <button id="v1_inc" class="px-3 py-1 bg-green-600 text-white rounded-lg">+</button>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="bg-white mt-4 rounded-lg px-5 py-3" x-data="{ count: 0 }" >
+                <h3 class="text-lg font-semibold">AlpineJS</h3>
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="text-xl font-mono" x-text="count"></div>
+                    <div class="space-x-2">
+                        <button  class="px-3 py-1 bg-red-600 text-white rounded-lg" @click="count-=1">-</button>
+                        <button  class="px-3 py-1 bg-green-600 text-white rounded-lg" @click ="count++">+</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <section>
+        <h2 class="text-xl font-semibold mb-2">2.Show/Hide</h2>
+        <p class="text-xs text-gray-500">ซ่อนหรือแสดง element ในหน้า web</p>
+        <div class="grid grid-cols-2 gap-6">
+            <div class="bg-white mt-4 rounded-lg px-5 py-3">
+                <h3 class="text-lg font-semibold">VanillaJS</h3>
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="space-x-2">
+                        <button id="v2_toggle" class="px-3 py-1 bg-indigo-600 text-white rounded-lg">Show</button>
+                    </div>
+                    <div class="text-xl font-mono opacity-0 transition-opacity duration-500" id="v2_msg" >Hello World!!!</div>
+                </div>
+            </div>
+            <div class="bg-white mt-4 rounded-lg px-5 py-3" x-data="{ show : false }" >
+                <h3 class="text-lg font-semibold ">AlpineJS</h3>
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="space-x-2">
+                        <button  class="px-3 py-1 bg-amber-600 text-white rounded-lg" @click="show = !show" x-text="show ? 'Hide' : 'Show'"></button>
+                    </div>
+                    <div class="text-xl font-mono" x-show="show">Hello World!!!</div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        //1 variable management counter
+        let v1 = 0;
+        const v1Count = document.getElementById('v1_counter');
+        const v1Inc = document.getElementById('v1_inc');
+        v1Inc.addEventListener('click', () => {
+            v1 ++;
+            v1Count.textContent = v1;
+        });
+
+        document.getElementById('v1_dec').addEventListener('click', () => {
+            v1--;
+            v1Count.textContent = v1;
+        });
+
+
+        //2
+        const v2Btn = document.getElementById('v2_toggle');
+        const v2Msg = document.getElementById('v2_msg')
+        v2Btn.addEventListener('click', () => {
+            const isHidden = v2Msg.classList.contains('opacity-0');
+            v2Msg.classList.toggle('opacity-0',!isHidden);
+            v2Btn.textContent = isHidden ? 'Hide':'Show';
+            
+        })
+
+
+    })
+</script>
+{% endblock%}

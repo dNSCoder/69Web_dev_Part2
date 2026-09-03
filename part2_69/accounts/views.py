@@ -10,7 +10,12 @@ from .models import Profile
 # Create your views here.
 # FBV
 def home_view(request):
-    return render(request, "accounts/home.html")
+    context ={}
+    if request.user.is_authenticated:
+        #ดึง profile
+        context['profile'] = Profile.objects.filter(user=request.user).first()
+        print(context)
+    return render(request, "accounts/home.html", context)
 
 #CBV
 class RegisterView(CreateView):

@@ -4,6 +4,13 @@
     {% if user.is_authenticated %}
         <p class="text-lg text-gray-700 mb-4">ยินดีต้อนรับ กลับมา</p>
         <span class="me-3"> สะวักลีคุณ {{user.first_name}} </span>
+        {% if profile.avatar %}
+        <img src="{{ profile.avatar.url }}" alt="avatar ของ {{user.username}}"
+        class="w-16 h-16 rounded-full object-cover border border-gray-200">
+        {% else %}
+        yyyyyyyyy
+        {% endif %}
+
         <a href="{% url 'profile_edit' %}" class="btn btn-outline-primary"> แก้ไขโปรไฟล์ของฉัน </a>     
     {% else %}
         <h1 class="text-lg text-gray-700 mb-4">ยินดีต้อนรับ</h1>  
