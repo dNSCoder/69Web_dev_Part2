@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
     <title>Part2: Webdev 2569</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
     {% tailwind_css %}
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js" integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- <script>
         document.addEventListener('alpine:init', ()=> {
@@ -20,10 +22,15 @@
             })
         })
     </script> -->
+    <script>
+        document.addEventListener('htmx:configRequest', (event) => {
+            event.detail.headers['X-CSRFToken'] = document.querySelector('meta[name="csrf-token"]').content;
+        })
+    </script>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col font-sans">
     <nav class="bg-white border-b border-gray-200 mb-8">
-        <div class="max-w-4xl mx-auto px-4 py-3 flex item-center justify-between">
+        <div class="max-w-full mx-auto px-4 py-3 flex item-center justify-between">
             <span class="font-semibold text-lg">My Webdev Project69</span>
             <div class="flex items-center gap-3">
             
@@ -31,6 +38,7 @@
                 <span class="me-3"> สะวักลี คุง : {{user.username}} </span>
                 <a href="{% url 'tailwind_showcase'%}" class="text-sm text-gray-200 bg-violet-400 rounded-md py-1.5 px-3 hover:bg-violet-700 transition">Component Learning</a>
                 <a href="{% url 'javascript_showcase'%}" class="text-sm text-gray-200 bg-amber-600 rounded-md py-1.5 px-3 hover:bg-violet-700 transition">JS Learning</a> 
+                <a href="{% url 'htmx_showcase'%}" class="text-sm text-gray-200 bg-teal-600 rounded-md py-1.5 px-3 hover:bg-violet-700 transition">HTMX Learning</a> 
                 <form method="post" class="d-inline" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <button type="submit" class="text-sm px-3 py-1.5 bg-red-400 text-white rounded-md hover:bg-red-600 transition"> logout </button>
@@ -39,6 +47,9 @@
             {% else %}
                 <a href="{% url 'login' %}" class="btn-sudlhor"> login </a>
                 <a href="{% url 'register' %}" class="btn-wanarase"> register</a>
+            {% endif %}
+            {% if user.is_staff %}
+                <a href="#" class="text-sm text-gray-200 bg-gray-600 rounded-md py-1.5 px-3 hover:bg-violet-700 transition">User task</a> 
             {% endif %}
             </div>
         </div>

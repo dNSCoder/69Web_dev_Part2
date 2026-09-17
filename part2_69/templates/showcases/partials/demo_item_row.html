@@ -1,0 +1,15 @@
+<li id="item-{{ item.id }}" class="flex items-center justify-between px-4 py-2 border-b border-gray-100 last:border-0">
+  <span class="text-sm cursor-pointer hover:text-blue-600"
+    hx-target="#item-{{ item.id }}"
+    hx-swap="outerHTML">
+    {{ item.title }}
+    </span>
+    <!-- outerHTML คือแทนที่ id นั้นด้วยสิ่งที่ return มาจาก view -->
+  <button hx-delete="{% url 'htmx_showcase_delete' item.id %}"
+    hx-target="#item-{{ item.id }}"
+    hx-swap="outerHTML swap:0.5s" 
+    hx-confirm="ลบ '{{ item.title }}' ใช่ไหม?"
+    class="text-red-600 text-sm hover:underline">
+    ลบ
+    </button>
+</li>

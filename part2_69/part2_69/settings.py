@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'showcase',
+    'tasks',
 ]
 
 if DEBUG:

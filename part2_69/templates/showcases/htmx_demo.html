@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="space-y-12 py-6" x-data="{ showModal: false}">
+    <div class="border-b border-gray-200 py-5">
+        <h1 class="text-2xl font-bold">HTMX Showcase</h1>
+        <p class="text-md mt-2 text-gray-500">CRUD ด้วย htmx กับข้อมูลใน DB</p>
+
+    </div>
+
+    <section>
+        <div class="flex items-center justify-between">
+            <h2 class="text-lg font-semibold">List item (add / search / delete / edit)</h2>
+            <button class="btn-wanarase" @click="showModal = true">+ เพิ่ม</button>
+        </div>
+        <!-- list -->
+         <div class="bg-white rounded-lg border border-gray-200 mt-2">
+            <input type="text" placeholder="ค้นหา" class="px-2 py-2">
+         </div>
+         {% include "showcases/partials/demo_item_list.html" with items=demo_items %}
+    </section>
+
+    <div x-show="showModal" x-cloak @keydown.escape.window="showModal = false" 
+    class="fixed inset-0 bg-black/50 flex items-center justify-center z-20">
+        <div x-show="showModal" x-transition @click.outside="showModal = false" 
+        class="bg-white rounded-xl p-6 w-1/2">
+            <h3 class="text-lg">เพิ่มรายการใหม่</h3>
+            <form hx-post="{% url 'htmx_showcase_add' %}"
+            hx-target="#demo-search-list"
+            hx-swap="outerHTML"
+            @htmx:after-request="showModal=false; $el.reset()"
+            >
+                <input type="text" name="title" placeholder="เพิ่มข้อมูลรายการ..." 
+                class="w-full rounded-md border px-3 py-2">
+                <div class="flex justify-end gap-2 mt-2">
+                    <button type="submit" class="text-white px-3 py-2 bg-green-600 rounded-md">เพิ่ม</button>
+                    <button @click="showModal = false" class="text-white px-3 py-2 bg-red-600 rounded-md">ยกเลิก</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</div>
+{% endblock%}
