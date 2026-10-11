@@ -1,0 +1,10 @@
+<li id="task-{{ task.id }}" class="flex items-center justify-between px-4 py-3">
+  <span class="text-sm text-gray-700">{{ task.title }}</span>
+  <button hx-delete="{% url 'task_delete' task.id %}"
+          hx-target="#task-{{ task.id }}"
+          hx-swap="outerHTML swap:1s"
+          hx-confirm="ลบงาน '{{ task.title }}' ใช่ไหม?"
+          class="text-red-600 text-xs hover:underline">
+    ลบ
+  </button>
+</li>

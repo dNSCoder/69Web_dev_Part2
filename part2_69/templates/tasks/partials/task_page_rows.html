@@ -1,0 +1,15 @@
+{% for task in page %}
+  {% include "tasks/partials/task_row.html" %}
+{% empty %}
+  <li class="px-4 py-8 text-center text-sm text-gray-400">ไม่พบงาน</li>
+{% endfor %}
+{% if page.has_next %}
+  <li class="px-4 py-3 text-center" id="load-more-row">
+    <button hx-get="{% url 'task_load_more' %}?q={{ q|urlencode }}&amp;page={{ page.next_page_number }}"
+            hx-target="#load-more-row"
+            hx-swap="outerHTML"
+            class="text-sm text-blue-600 hover:underline">
+      โหลดเพิ่ม (หน้า {{ page.number }}/{{ page.paginator.num_pages }} — ทั้งหมด {{ page.paginator.count }} รายการ)
+    </button>
+  </li>
+{% endif %}

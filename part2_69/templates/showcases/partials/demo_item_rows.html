@@ -1,0 +1,5 @@
+{% for item in items %}
+  {% include "showcases/partials/demo_item_row.html" %}
+{% empty %}
+  <li class="px-4 py-6 text-center text-sm text-gray-400">ไม่พบรายการ</li>
+{% endfor %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="space-y-6 py-6">
+  <div class="border-b border-gray-200 pb-4">
+    <h1 class="text-2xl font-bold">Task Manager</h1>
+    <p class="text-gray-500 text-sm mt-1">งานของ {{ user.username }} เท่านั้น</p>
+  </div>
+
+  <form hx-post="{% url 'task_add' %}"
+        hx-target="#task-list"
+        hx-swap="innerHTML"
+        hx-on::after-request="this.reset()"
+        class="flex gap-2">
+    <input type="text" name="title" placeholder="ชื่องาน..." required
+           class="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <button type="submit" class="btn-wanarase">เพิ่มงาน</button>
+  </form>
+
+  <div class="relative">
+    <input type="text" name="q" placeholder="ค้นหางาน..."
+           hx-get="{% url 'task_filter' %}"
+           hx-trigger="keyup changed delay:300ms"
+           hx-target="#task-list"
+           hx-swap="innerHTML"
+           hx-indicator="#search-spinner"
+           class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <span id="search-spinner" class="htmx-indicator absolute right-3 top-2.5 text-xs text-gray-400">กำลังค้นหา...</span>
+  </div>
+
+  <div class="bg-white rounded-lg border border-gray-200">
+    {% include "tasks/partials/task_list_content.html" %}
+  </div>
+</div>
+{% endblock %}

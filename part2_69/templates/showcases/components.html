@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="space-y-12 py-6">
+    <div class="border-b border-gray-200 pb-4">
+        <h1 class="text-2xl font-bold ">Component Showcase</h1>
+        <p class="text-gray-600 text-sm mt-2">Tailwind Component Learning by Doing</p>
+    </div>
+
+    <!-- Typography -->
+     <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">Typography</h2>
+        <p class="text-gray-500 text-sm">การจัดรูปแบบข้อความที่ใช้บ่อย ๆ</p>
+        <div class="bg-white rounded-lg shadow p-5 space-y-3">
+            <h1 class="text-3xl font-extrabold">H1# Heading - หัวเรื่อง</h1>
+            <h2 class="text-2xl font-bold">H2# Sub-heading - หัวเรื่องย่อย</h2>
+            <h3 class="text-xl font-semibold">H3# Section Header - ย่อยอีก</h3>
+
+            <p class="text-base"> ข้อความธรรมดา </p>
+            <p class="text-sm text-gray-600"> ข้อความขนาดเล็ก </p>
+            <a href="#" class="text-blue-600 hover:underline">Link</a>
+        </div>
+     </section>
+     <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">Buttons</h2>
+        <p class="text-gray-500 text-sm">รูปแบบปุ่มที่ใช้บ่อย ๆ</p>
+        <div class="bg-white rounded-lg shadow p-5 space-y-3">
+            <button class="px-4 py-2 bg-blue-600 text-white rounded-xl">Primary</button>
+            <button class="px-4 py-2 bg-gray-700 text-white rounded-lg">Dark</button>
+            <button class="px-4 py-2 bg-green-600 text-white rounded-md">Success</button>
+            <button class="px-4 py-2 bg-red-600 text-white rounded-sm">Danger</button>
+            <button class="px-4 py-2 bg-amber-600 text-white ">Warning</button>
+            <button class="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-200">Outline primary</button>
+        </div>
+    </section>
+
+    <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">Layout - Flex/Flexbox</h2>
+        <p class="text-gray-500 text-sm">การจัดวาง component ในแนวเดียว ไม่ว่าจะเป็น row หรือ col</p>
+        <div class="bg-white rounded-lg shadow p-5 space-y-3">
+            <p class="my-4 text-sm text-gray-800"> เปรียบ flex (แถว) กับ flex-col (คอลัมน์)</p>
+            <div class="flex gap-2 bg-gray-100 p-2">
+                <div class="bg-blue-600 rounded text-white text-sm p-3">1</div>
+                <div class="bg-blue-600 rounded text-white text-sm p-3">2</div>
+                <div class="bg-blue-600 rounded text-white text-sm p-3">3</div>
+            </div>
+            <div class="flex flex-col gap-2 bg-gray-100 p-2 w-24">
+                <div class="bg-purple-600 rounded text-white text-sm p-3 text-center">1</div>
+                <div class="bg-purple-600 rounded text-white text-sm p-3 text-center">2</div>
+                <div class="bg-purple-600 rounded text-white text-sm p-3 text-center">3</div>
+            </div>
+
+            <div class="space-y-2">
+                <p class="my-4 text-sm text-gray-800"> จัดตำแหน่งตาม main axis แกน x</p>
+                <p class="my-4 text-xs text-gray-800"> justify-start</p>
+                <div class="flex justify-start gap-2 bg-gray-100 p-2">
+                    <div class="bg-teal-600 rounded text-white text-sm p-3">A</div>
+                    <div class="bg-teal-600 rounded text-white text-sm p-3">B</div>
+                    <div class="bg-teal-600 rounded text-white text-sm p-3">C</div>
+                </div>
+                <p class="my-4 text-xs text-gray-800"> justify-center</p>
+                <div class="flex justify-center gap-2 bg-gray-100 p-2">
+                    <div class="bg-amber-600 rounded text-white text-sm p-3">A</div>
+                    <div class="bg-amber-600 rounded text-white text-sm p-3">B</div>
+                    <div class="bg-amber-600 rounded text-white text-sm p-3">C</div>
+                </div>
+                <p class="my-4 text-xs text-gray-800"> justify-end</p>
+                <div class="flex justify-end gap-2 bg-gray-100 p-2">
+                    <div class="bg-pink-600 rounded text-white text-sm p-3">A</div>
+                    <div class="bg-pink-600 rounded text-white text-sm p-3">B</div>
+                    <div class="bg-pink-600 rounded text-white text-sm p-3">C</div>
+                </div>
+                <p class="my-4 text-xs text-gray-800"> justify-between</p>
+                <div class="flex justify-between gap-2 bg-gray-100 p-2">
+                    <div class="bg-rose-600 rounded text-white text-sm p-3">A</div>
+                    <div class="bg-rose-600 rounded text-white text-sm p-3">B</div>
+                </div>
+            </div>
+            <div class="space-y-2">
+                <p class="my-4 text-sm text-gray-800"> จัดตำแหน่งตาม main axis แกน y</p>
+                <p class="my-4 text-xs text-gray-800"> items-start</p>
+                <div class="flex items-start gap-2 bg-gray-100 p-2 h-40">
+                    <div class="bg-cyan-600 rounded text-white text-sm py-1.5 px-3">A</div>
+                    <div class="bg-cyan-600 rounded text-white text-sm py-1.5 px-3">B</div>
+                </div>
+                <p class="my-4 text-xs text-gray-800"> items-center</p>
+                <div class="flex items-center gap-2 bg-gray-100 p-2 h-40">
+                    <div class="bg-cyan-600 rounded text-white text-sm py-1.5 px-3">A</div>
+                    <div class="bg-cyan-600 rounded text-white text-sm py-1.5 px-3">B</div>
+                </div>
+                <p class="my-4 text-xs text-gray-800"> items-end</p>
+                <div class="flex items-end gap-2 bg-gray-100 p-2 h-40">
+                    <div class="bg-cyan-600 rounded text-white text-sm py-1.5 px-3">A</div>
+                    <div class="bg-cyan-600 rounded text-white text-sm py-1.5 px-3">B</div>
+                </div>
+            </div>
+            <div class="space-y-2">
+                <p class="my-4 text-sm text-gray-800"> รวมร่าง</p>
+                <div class="flex space-x-4">
+                    <div class="w-60">
+                        <p class="my-4 text-xs text-gray-800"> items-start justify-center</p>
+                        <div class="flex items-start justify-center gap-2 bg-gray-100 p-2 h-30">
+                            <div class="bg-yellow-400 rounded text-white text-sm py-1.5 px-3">A</div>
+                        </div>
+                    </div>
+                    <div class="w-60">
+                        <p class="my-4 text-xs text-gray-800"> items-start justify-start</p>
+                        <div class="flex items-start justify-start gap-2 bg-gray-100 p-2 h-30">
+                            <div class="bg-yellow-400 rounded text-white text-sm py-1.5 px-3">A</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- padding -->
+    <section class="space-y-4">
+        <h2 class="text-2xl font-semibold">Padding</h2>
+        <p class="text-gray-500 text-sm">ระยะห่างจากขอบ "เข้าไปด้านในกล่อง"</p>
+        <div class="bg-white rounded-lg shadow p-5 space-y-3">
+        </div>
+    </section>
+
+</div>
+{% endblock %}

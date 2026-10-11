@@ -1,0 +1,25 @@
+<!-- templates/accounts/profile_edit.html: หน้าแก้ไขโปรไฟล์ (bio + avatar) -->
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="h4 mb-3">แก้ไขโปรไฟล์</h1>
+
+        
+        {% if form.instance.avatar %}
+            <img src="{{ form.instance.avatar.url }}" alt="avatar ปัจจุบัน" class="rounded-circle mb-3" style="width:96px;height:96px;object-fit:cover;">
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+            
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">บันทึก</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

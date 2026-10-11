@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part2: Webdev 2569</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+    {% tailwind_css %}
+    <script src="https://unpkg.com/htmx.org@2.0.10"></script>
+    <style>
+        .htmx-swapping { opacity: 0; transition: opacity 1s ease-out; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col font-sans" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+    <nav class="bg-white border-b border-gray-200 mb-8">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex item-center justify-between">
+            <span class="font-semibold text-lg">My Webdev Project69</span>
+            <div class="flex items-center gap-3">
+            <a href="{% url 'htmx_demo' %}" class="text-sm text-gray-200 bg-violet-400 rounded-md py-1.5 px-3 hover:bg-violet-700 transition">HTMX Demo</a>
+            {% if user.is_authenticated %}
+                <span class="me-3"> สะวักลี คุง : {{user.username}} </span>
+                <a href="{% url 'tailwind_showcase'%}" class="text-sm text-gray-200 bg-violet-400 rounded-md py-1.5 px-3 hover:bg-violet-700 transition">Component Learning</a>
+                <a href="{% url 'task_list' %}" class="text-sm text-gray-200 bg-violet-400 rounded-md py-1.5 px-3 hover:bg-violet-700 transition">Tasks</a>
+                <form method="post" class="d-inline" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="text-sm px-3 py-1.5 bg-red-400 text-white rounded-md hover:bg-red-600 transition"> logout </button>
+                </form>
+                
+            {% else %}
+                <a href="{% url 'login' %}" class="btn-sudlhor"> login </a>
+                <a href="{% url 'register' %}" class="btn-wanarase"> register</a>
+            {% endif %}
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-4xl mx-auto px-4 flex-1 w-full">
+        <!-- ส่วนแสดงผลของหน้าเว็บแต่ละหน้า -->
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+</body>
+</html>

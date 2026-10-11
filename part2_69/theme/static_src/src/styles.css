@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/**
+  * A catch-all path to Django template files, JavaScript, and Python files
+  * that contain Tailwind CSS classes and will be scanned by Tailwind to generate the final CSS file.
+  *
+  * If your final CSS file is not being updated after code changes, you may want to broaden or narrow
+  * the scope of this path.
+  */
+@source "../../../**/*.{html,py,js}";
+
+
+@layer components {
+  .btn-wanarase {
+    @apply px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition;
+  }
+  .btn-sudlhor {
+    @apply px-4 py-2 rounded-md bg-green-600 text-white text-sm font-medium hover:bg-green-700 transition;
+  }
+
+}
+
+@theme {
+  --font-sans: "Noto Sans Thai", sans-serif, ui-sans-serif, system-ui;
+}
